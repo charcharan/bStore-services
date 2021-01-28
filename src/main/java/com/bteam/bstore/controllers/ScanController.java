@@ -3,7 +3,6 @@ package com.bteam.bstore.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +21,7 @@ public class ScanController {
 	private int cloudIndicator;	
 	
 	//To get the highest confidence item for the image from cloud
-	@RequestMapping(value="/items",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/items",method=RequestMethod.POST)
 	public String scannedItems(@RequestBody Object img) throws Exception {
 		
 		String item = AppConstants.EMPTY;
