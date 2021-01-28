@@ -5,9 +5,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * @author b-team
+ *
+ */
 @SpringBootApplication
 public class BstoreApplication {
 
+	/**
+	 * @return rest template object
+	 */
 	@Bean
 	public RestTemplate restTemplate() {
 	    return new RestTemplate();

@@ -18,7 +18,9 @@ public class ScannedItem implements Comparable<ScannedItem> {
 		return this.name;
 	}
 	
-	//To sort the items in descending order based on confidence of item
+	/**
+	 * To sort the items in descending order based on confidence of item
+	 */
 	public int compareTo(ScannedItem item){  
 		if(this.confidence==item.confidence)  
 		return 0;  
