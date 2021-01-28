@@ -4,6 +4,7 @@ package com.bteam.bstore.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,15 +22,15 @@ public class ScanController {
 	private int cloudIndicator;	
 	
 	//To get the highest confidence item for the image from cloud
-	@RequestMapping(value="/items",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public String scannedItems() throws Exception {
+	@RequestMapping(value="/items",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String scannedItems(@RequestBody Object img) throws Exception {
 		
 		String item = AppConstants.EMPTY;
 		
 		//Get response based on type of cloud service indicator
 		switch(cloudIndicator) {
 		case 1:
-			item = service.getAWSResponse();
+			item = service.getAWSResponse(img);
 			break;
 		}
 		
