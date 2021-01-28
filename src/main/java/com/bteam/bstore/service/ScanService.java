@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.bteam.bstore.beans.ScannedItem;
+import com.bteam.bstore.utils.AppConstants;
 
 @Service
 public class ScanService {
@@ -45,8 +46,8 @@ public class ScanService {
 		  //Parsing the list of matching items(confidence,name)
 		  ArrayList<ScannedItem> scannedItems = new ArrayList<ScannedItem>();
 		  for(Object item:items) {
-			  String name = item.toString().split(",")[0].split("=")[1];
-			  Double confidence = Double.parseDouble(item.toString().split(",")[1].split("=")[1]);
+			  String name = item.toString().split(AppConstants.COMMA)[0].split(AppConstants.EQUALS)[1];
+			  double confidence = Double.parseDouble(item.toString().split(",")[1].split("=")[1]);
 			  ScannedItem it = new ScannedItem(confidence,name);
 			  scannedItems.add(it);
 		  }

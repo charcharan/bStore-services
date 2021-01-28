@@ -5,7 +5,7 @@ public class ScannedItem implements Comparable<ScannedItem> {
 	private final double confidence;
 	private final String name;
 
-	public ScannedItem(Double confidence2, String name) {
+	public ScannedItem(double confidence2, String name) {
 	        this.confidence = confidence2;
 	        this.name = name;
 	    }
